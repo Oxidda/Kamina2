@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Kamina2.Commands\Kamina2.Commands.csproj" />
+    <ProjectReference Include="..\Kamina2.TestUtils\Kamina2.TestUtils.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading.Tasks;
 using Discord.Commands;
 using Kamina2.Commands.Info;
 using Kamina2.Core.Common;
+using Kamina2.TestUtils;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -20,8 +20,8 @@ namespace Kamina2.Commands.Tests.Info
 
             // Assert
             Assert.That(call, Throws.TypeOf<ArgumentNullException>()
-                .With.Property(nameof(ArgumentNullException.ParamName))
-                .EqualTo("timeService"));
+                                    .With.Property(nameof(ArgumentNullException.ParamName))
+                                    .EqualTo("timeService"));
         }
 
         [Test]
@@ -83,8 +83,8 @@ namespace Kamina2.Commands.Tests.Info
         public void UserInfoAsyncWithoutArguments_Always_ReturnsExpectedAttributes()
         {
             // Call
-            var commandAttribute = GetCustomAttribute<InfoModule, CommandAttribute>(nameof(InfoModule.UserInfoAsync));
-            var summaryAttribute = GetCustomAttribute<InfoModule, SummaryAttribute>(nameof(InfoModule.UserInfoAsync));
+            var commandAttribute = ReflectionHelper.GetCustomAttribute<InfoModule, CommandAttribute>(nameof(InfoModule.UserInfoAsync));
+            var summaryAttribute = ReflectionHelper.GetCustomAttribute<InfoModule, SummaryAttribute>(nameof(InfoModule.UserInfoAsync));
 
             // Assert
             Assert.That(commandAttribute, Is.Not.Null);
@@ -105,8 +105,10 @@ namespace Kamina2.Commands.Tests.Info
             };
 
             // Call
-            var commandAttribute = GetCustomAttribute<InfoModule, CommandAttribute>(nameof(InfoModule.UserInfoAsync), argumentTypes);
-            var aliasAttribute = GetCustomAttribute<InfoModule, AliasAttribute>(nameof(InfoModule.UserInfoAsync), argumentTypes);
+            var commandAttribute = ReflectionHelper.GetCustomAttribute<InfoModule, CommandAttribute>(nameof(InfoModule.UserInfoAsync),
+                                                                                                     argumentTypes);
+            var aliasAttribute = ReflectionHelper.GetCustomAttribute<InfoModule, AliasAttribute>(nameof(InfoModule.UserInfoAsync),
+                                                                                                 argumentTypes);
 
             // Assert
             Assert.That(commandAttribute, Is.Not.Null);
@@ -124,20 +126,6 @@ namespace Kamina2.Commands.Tests.Info
             {
                 "respond"
             }, aliasValues);
-        }
-
-        private static TAttribute GetCustomAttribute<TObject, TAttribute>(string methodName)
-            where TObject : class
-            where TAttribute : Attribute
-        {
-            return GetCustomAttribute<TObject, TAttribute>(methodName, Type.EmptyTypes);
-        }
-
-        private static TAttribute GetCustomAttribute<TObject, TAttribute>(string methodName, Type[] argumentTypes)
-            where TObject : class
-            where TAttribute : Attribute
-        {
-            return typeof(TObject).GetMethod(methodName, argumentTypes)?.GetCustomAttribute<TAttribute>();
         }
     }
 }
