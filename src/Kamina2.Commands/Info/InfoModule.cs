@@ -24,7 +24,7 @@ namespace Kamina2.Commands.Info
             ("Returns info about the current user, or the user parameter, if one passed.")]
         public async Task UserInfoAsync()
         {
-            TimeSpan time = DateTime.Now - timeService.StartTime;
+            TimeSpan time = timeService.GetCurrent() - timeService.StartTime;
             var discordSocketClient = Context.Client;
             await ReplyAsync(
                 $"{Format.Bold("Info")}\n" +
