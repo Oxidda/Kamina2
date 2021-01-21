@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kamina2", "Kamina2.csproj", "{B5666805-DB40-4942-93E0-F67D22D51545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kamina2.Core", "..\Kamina2.Core\Kamina2.Core.csproj", "{9471B61B-EBE1-4C4A-80BC-BC8451E7F796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kamina2.Core", "..\Kamina2.Core\Kamina2.Core.csproj", "{9471B61B-EBE1-4C4A-80BC-BC8451E7F796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kamina2.Commands", "..\Kamina2.Commands\Kamina2.Commands.csproj", "{3BD316AA-0DB4-4F83-961C-E9FBAD9EDB6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kamina2.Commands", "..\Kamina2.Commands\Kamina2.Commands.csproj", "{3BD316AA-0DB4-4F83-961C-E9FBAD9EDB6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{48B879BA-ACB9-41B7-9801-40F9D00E919C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kamina2.Commands.Tests", "..\..\tests\Kamina2.Commands.Tests\Kamina2.Commands.Tests.csproj", "{E36CB6A1-3F09-45ED-B6E3-8EE8F7A0B3A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +31,16 @@ Global
 		{3BD316AA-0DB4-4F83-961C-E9FBAD9EDB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD316AA-0DB4-4F83-961C-E9FBAD9EDB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD316AA-0DB4-4F83-961C-E9FBAD9EDB6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E36CB6A1-3F09-45ED-B6E3-8EE8F7A0B3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36CB6A1-3F09-45ED-B6E3-8EE8F7A0B3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36CB6A1-3F09-45ED-B6E3-8EE8F7A0B3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36CB6A1-3F09-45ED-B6E3-8EE8F7A0B3A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E36CB6A1-3F09-45ED-B6E3-8EE8F7A0B3A4} = {48B879BA-ACB9-41B7-9801-40F9D00E919C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A24BF53-9925-4AEC-9D64-4156B907D5E2}
